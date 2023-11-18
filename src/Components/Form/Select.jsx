@@ -10,7 +10,7 @@ export const Select = ({text,name, options}) => {
         <label htmlFor={name}>{text}</label>
         <select name={name} id={name}>
             <option>Select a option</option>
-            {options.map((option)=>(
+            {options && options.map((option)=>(
                 <option value={option.id} key={option.id}>{option.name}</option>
             ))}
         </select>
@@ -21,6 +21,5 @@ export const Select = ({text,name, options}) => {
 Select.propTypes = {
     text: PropTypes.string,
     name: PropTypes.string,
-    options: PropTypes.array,
-    handleOnChange: PropTypes.func
+    options: PropTypes.array
 }

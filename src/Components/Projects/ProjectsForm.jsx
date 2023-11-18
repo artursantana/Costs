@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Input } from "../Form/Input"
 import { Select } from "../Form/Select"
 import { Submit } from "../Form/Submit"
@@ -10,6 +10,8 @@ export const ProjectsForm = ({ btntext }) => {
 
   const [categories, setCategories] = useState([])
 
+ useEffect(()=>{
+
   fetch('http://localhost:5000/categories', {
     method: 'GET',
     headers: {
@@ -17,6 +19,9 @@ export const ProjectsForm = ({ btntext }) => {
     },
   }).then((resp)=>resp.json())
   .then((data)=>setCategories(data)).catch((error)=>console.log(error))
+
+ }
+ ,[])
  
   return (
 
