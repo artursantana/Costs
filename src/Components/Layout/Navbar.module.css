@@ -4,7 +4,14 @@
     background-color: #222;
     padding: 0.5em;
 }
-
+.imgnavbarcontainer {
+    @media (max-width: 580px) {
+        display: flex;
+        width: 100%;
+        justify-content: space-between; 
+    }
+    
+}
 .imgnavbar {
     width: 80px;height: 80px;
 }
@@ -13,6 +20,26 @@
     display: flex;
     list-style: none;
     align-items: center;
+
+    @media (max-width:580px) {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        right: -1145px;
+        background-color: #222;
+        position: absolute;
+    }
+}
+
+.button_menu{
+    display: none;
+    margin:  auto 0;
+    color: white;
+    font-size: 40px;
+    @media (max-width:580px) {
+        display: flex;
+        cursor: pointer;
+    }
 }
 
 .item {

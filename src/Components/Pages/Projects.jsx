@@ -1,9 +1,9 @@
-
+import { NewProject } from "./NewProject"
 
 export const Projects = () => {
   return (
     <>
-      <h1>Projects</h1>  
+      <NewProject />  
     </>
   )
 }
