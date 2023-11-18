@@ -1,24 +1,40 @@
+import { useState } from "react"
 import { Input } from "../Form/Input"
+import { Select } from "../Form/Select"
+import { Submit } from "../Form/Submit"
 
+import styles from './ProjectForm.module.css'
+import PropTypes from 'prop-types'
 
-export const ProjectsForm = () => {
+export const ProjectsForm = ({ btntext }) => {
+
+  const [categories, setCategories] = useState([])
+
+  fetch('http://localhost:5000/categories', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then((resp)=>resp.json())
+  .then((data)=>setCategories(data)).catch((error)=>console.log(error))
+ 
   return (
-    <form>
-        <Input type='text'text='Name project' placeholder='insert name of project' name='name' />
 
-        <Input type='text'text='Name project' placeholder='insert name of project' name='name' />
-        <div><input type="number" placeholder="insert your budget" />
+    
+
+    <form className={styles.form}>
+        <Input type='text'text='Name :' placeholder='insert name of project' name='name' />
+
+        <Input type='text'text='Budget :' placeholder='Budget name of project' name='name' />
+
+        <Select name='category_id' text='select category' />
         
-        </div>
-        <div>
-            <select name="category_id">
-                <option>Select category</option>
-            </select>
-        </div>
-        <div>
-            <input type="submit" value='To create Project' />
-        </div>
-        
+       
+        <Submit text={btntext} options={categories} />
     </form>
   )
+}
+
+ProjectsForm.propTypes = {
+  btntext: PropTypes.string
 }

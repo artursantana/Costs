@@ -7,7 +7,7 @@ export const NewProject = () => {
       <div className={styles.newproject_container}>
         <h1>Create Projects</h1>
         <p>create your project to after add services</p>
-        <ProjectsForm />
+        <ProjectsForm btntext='to create project' />
       </div>  
     </>
   )
